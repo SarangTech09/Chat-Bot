@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ChatBot 🤖
 
-## Getting Started
+A full-stack AI chatbot application with a modern UI and persistent chat history. Built using Next.js for the frontend, Node.js + Express for the backend, PostgreSQL for storage, and integrates with a locally running Ollama LLM (Gemma 2B).
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: [Next.js](https://nextjs.org/) (React framework)
+- **Backend**: [Node.js](https://nodejs.org/) with [Express.js](https://expressjs.com/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
+- **LLM**: [Ollama (Gemma 2B)](https://ollama.com/)
+- **API Integration**: Ollama runs locally at `http://localhost:11434/api/chat`
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. 🧠 LLM: Ollama
+
+Ensure you have [Ollama](https://ollama.com/) installed locally.
 
 ```bash
+# Install Ollama (if not already)
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Run the Gemma 2B model
+ollama run gemma:2b
+
+```
+### 2. 🗄️ PostgreSQL Database
+
+## Ensure PostgreSQL is installed and running. Then create a database:
+
+## Run the necessary migration or schema setup:
+
+## Update your .env file with DB credentials:
+
+### 3. 🛠️ Backend Setup
+```bash
+cd backend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+## Ensure the backend connects to both the DB and Ollama API.
+
+### 4. 🖥️ Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+💡 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🧭 Sidebar: New Chat button + list of past sessions (date-based titles)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💬 Chat UI: Two-pane layout (sidebar + chat window)
 
-## Learn More
+🧠 LLM Integration: Gemma 2B via local Ollama server
 
-To learn more about Next.js, take a look at the following resources:
+📥 Input Box: Message input at bottom with "Send" button
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔄 Streaming Output: Assistant messages appear in real-time
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📌 Persistent Chat History: Stored in PostgreSQL with chat sessions + messages
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📌 Assumptions or Constraints
+Ollama with Gemma 2B must be running locally on localhost:11434
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No cloud-hosted LLM integration; designed for local development
+
+Only supports one active user session per instance (no auth/multi-user yet)
+
+No external storage used — all data is stored in local PostgreSQL
+
+📬 Feedback or Contributions
+PRs and suggestions welcome! Built with ❤️ by Sarang Tadaskar.
