@@ -51,29 +51,23 @@ npm install
 npm run dev
 ```
 
-💡 Features
+## 💡 Features
 
-🧭 Sidebar: New Chat button + list of past sessions (date-based titles)
+- 🧭 **Sidebar**: New Chat button + list of past sessions (date-based titles)
+- 💬 **Chat UI**: Two-pane layout (sidebar + chat window)
+- 🧠 **LLM Integration**: Gemma 2B via local Ollama server
+- 📥 **Input Box**: Message input at bottom with "Send" button
+- 🔄 **Streaming Output**: Assistant messages appear in real-time
+- 💾 **Persistent Chat History**: Stored in PostgreSQL with chat sessions + messages
 
-💬 Chat UI: Two-pane layout (sidebar + chat window)
+---
 
-🧠 LLM Integration: Gemma 2B via local Ollama server
+## 📌 Assumptions & Constraints
 
-📥 Input Box: Message input at bottom with "Send" button
+- Ollama with Gemma 2B must be running locally on `localhost:11434`
+- No cloud-hosted LLM integration; designed for local development
+- Only supports one active user session per instance (no auth/multi-user yet)
+- No external storage used — all data is stored in local PostgreSQL
 
-🔄 Streaming Output: Assistant messages appear in real-time
-
-📌 Persistent Chat History: Stored in PostgreSQL with chat sessions + messages
-
-
-📌 Assumptions or Constraints
-Ollama with Gemma 2B must be running locally on localhost:11434
-
-No cloud-hosted LLM integration; designed for local development
-
-Only supports one active user session per instance (no auth/multi-user yet)
-
-No external storage used — all data is stored in local PostgreSQL
-
-📬 Feedback or Contributions
-PRs and suggestions welcome! Built with ❤️ by Sarang Tadaskar.
+## 📬 Feedback or Contributions
+- PRs and suggestions welcome! Built with ❤️ by Sarang Tadaskar.
